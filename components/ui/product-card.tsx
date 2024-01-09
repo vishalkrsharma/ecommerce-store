@@ -7,13 +7,13 @@ import { useRouter } from 'next/navigation';
 
 import Currency from '@/components/ui/currency';
 import IconButton from '@/components/ui/icon-button';
-// import usePreviewModal from '@/hooks/use-preview-modal';
-// import useCart from '@/hooks/use-cart';
+import usePreviewModal from '@/hooks/use-preview-modal';
+import useCart from '@/hooks/use-cart';
 import { Product } from '@/types';
 
 const ProductCard = ({ data }: { data: Product }) => {
-  // const previewModal = usePreviewModal();
-  // const cart = useCart();
+  const previewModal = usePreviewModal();
+  const cart = useCart();
   const router = useRouter();
 
   const handleClick = () => {
@@ -22,14 +22,12 @@ const ProductCard = ({ data }: { data: Product }) => {
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
-    // previewModal.onOpen(data);
+    previewModal.onOpen(data);
   };
 
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
-    // cart.addItem(data);
+    cart.addItem(data);
   };
 
   return (
