@@ -7,6 +7,7 @@ export interface Product {
   size: Size;
   color: Color;
   images: Image[];
+  stock: number;
 }
 
 export interface Image {

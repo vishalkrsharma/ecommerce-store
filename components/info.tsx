@@ -35,6 +35,7 @@ const Info = ({ data }: { data: Product }) => {
             style={{ backgroundColor: data?.color?.value }}
           />
         </div>
+        <div>Stock: {data?.stock}</div>
       </div>
       <div className='mt-10 flex items-center gap-x-3'>
         <Button
