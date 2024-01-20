@@ -1,6 +1,6 @@
 'use client';
 
-import { ShoppingCart } from 'lucide-react';
+import { Minus, Plus, ShoppingCart } from 'lucide-react';
 
 import Currency from '@/components/ui/currency';
 import Button from '@/components/ui/button';
@@ -9,18 +9,25 @@ import useCart from '@/hooks/use-cart';
 
 const Info = ({ data }: { data: Product }) => {
   const cart = useCart();
+  const [itemOnCart] = cart.items.map((item) => {
+    if (item.product.id === data.id) return item.quantity;
+  });
 
   const onAddToCart = () => {
     cart.addItem(data);
+  };
+
+  const onDeleteFromCart = () => {
+    cart.removeItem(data);
   };
 
   return (
     <div>
       <h1 className='text-3xl font-bold text-gray-900'>{data.name}</h1>
       <div className='mt-3 flex items-end justify-between'>
-        <p className='text-2xl text-gray-900'>
+        <div className='text-2xl text-gray-900'>
           <Currency value={data?.price} />
-        </p>
+        </div>
       </div>
       <hr className='my-4' />
       <div className='flex flex-col gap-y-6'>
@@ -37,13 +44,24 @@ const Info = ({ data }: { data: Product }) => {
         </div>
         <div>Stock: {data?.stock}</div>
       </div>
-      <div className='mt-10 flex items-center gap-x-3'>
+      <div className='mt-10 inline-flex border p-1 rounded-full items-center gap-x-3'>
         <Button
-          onClick={onAddToCart}
-          className='flex items-center gap-x-2'
+          className='p-2'
+          onClick={onDeleteFromCart}
+          disabled={itemOnCart === undefined}
         >
+          <Minus />
+        </Button>
+        <div className='flex items-center gap-x-2'>
           Add To Cart
           <ShoppingCart size={20} />
+        </div>
+        <Button
+          className='p-2'
+          onClick={onAddToCart}
+          disabled={data.stock === itemOnCart}
+        >
+          <Plus />
         </Button>
       </div>
     </div>

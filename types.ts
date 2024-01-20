@@ -38,3 +38,8 @@ export interface Color {
   name: string;
   value: string;
 }
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}

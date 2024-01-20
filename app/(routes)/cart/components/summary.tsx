@@ -26,12 +26,12 @@ const Summary = () => {
   }, [searchParams, removeAll]);
 
   const totalPrice = items.reduce((total, item) => {
-    return total + Number(item.price);
+    return total + Number(parseFloat(item.product.price) * item.quantity);
   }, 0);
 
   const onCheckout = async () => {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-      productIds: items.map((item) => item.id),
+      productIds: items.map((item) => item.product.id),
     });
 
     window.location = response.data.url;
