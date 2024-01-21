@@ -42,7 +42,7 @@ const Info = ({ data }: { data: Product }) => {
             style={{ backgroundColor: data?.color?.value }}
           />
         </div>
-        <div>Stock: {data?.stock}</div>
+        <div>{data.stock !== 0 ? `Stock: ${data?.stock}` : `Out of stock.`}</div>
       </div>
       <div className='mt-10 inline-flex border p-1 rounded-full items-center gap-x-3'>
         <Button
@@ -59,7 +59,7 @@ const Info = ({ data }: { data: Product }) => {
         <Button
           className='p-2'
           onClick={onAddToCart}
-          disabled={data.stock === itemOnCart}
+          disabled={data.stock === itemOnCart || data.stock === 0}
         >
           <Plus />
         </Button>

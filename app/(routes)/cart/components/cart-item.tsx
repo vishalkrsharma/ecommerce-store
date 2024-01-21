@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { toast } from 'react-hot-toast';
 import { Minus, Plus, ShoppingCart, X } from 'lucide-react';
 
 import IconButton from '@/components/ui/icon-button';
@@ -70,7 +69,7 @@ const CartItem = ({ data, quantity }: { data: Product; quantity: number }) => {
           <Button
             className='p-2'
             onClick={onAddToCart}
-            disabled={data.stock === quantity}
+            disabled={data.stock === quantity || data.stock === 0}
           >
             <Plus />
           </Button>
