@@ -14,8 +14,6 @@ const CartItem = ({ data, quantity }: { data: Product; quantity: number }) => {
     if (item.product.id === data.id) return item.quantity;
   });
 
-  console.log(itemOnCart);
-
   const onRemove = () => {
     cart.removeItemAll(data);
   };
