@@ -1,21 +1,28 @@
 import Image from 'next/image';
-import { toast } from 'react-hot-toast';
-import { X } from 'lucide-react';
+import { Minus, Plus, ShoppingCart, X } from 'lucide-react';
 
 import IconButton from '@/components/ui/icon-button';
 import Currency from '@/components/ui/currency';
 import useCart from '@/hooks/use-cart';
 import { Product } from '@/types';
+import Button from '@/components/ui/button';
 
-interface CartItemProps {
-  data: Product;
-}
-
-const CartItem: React.FC<CartItemProps> = ({ data }) => {
+const CartItem = ({ data, quantity }: { data: Product; quantity: number }) => {
   const cart = useCart();
+  const [itemOnCart] = cart.items.map((item) => {
+    if (item.product.id === data.id) return item.quantity;
+  });
 
   const onRemove = () => {
-    cart.removeItem(data.id);
+    cart.removeItemAll(data);
+  };
+
+  const onAddToCart = () => {
+    cart.addItem(data);
+  };
+
+  const onDeleteFromCart = () => {
+    cart.removeItem(data);
   };
 
   return (
@@ -45,6 +52,27 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             <p className='ml-4 border-l border-gray-200 pl-4 text-gray-500'>{data.size.name}</p>
           </div>
           <Currency value={data.price} />
+          <div className='text-gray-500 font-semibold'>Quantity: {quantity}</div>
+        </div>
+        <div className='mt-10 inline-flex border p-1 rounded-full items-center gap-x-3 absolute bottom-0'>
+          <Button
+            className='p-2'
+            onClick={onDeleteFromCart}
+            disabled={quantity === 0}
+          >
+            <Minus />
+          </Button>
+          <div className='flex items-center gap-x-2'>
+            Add To Cart
+            <ShoppingCart size={20} />
+          </div>
+          <Button
+            className='p-2'
+            onClick={onAddToCart}
+            disabled={data.stock === quantity || data.stock === 0}
+          >
+            <Plus />
+          </Button>
         </div>
       </div>
     </li>

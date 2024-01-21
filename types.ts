@@ -7,6 +7,7 @@ export interface Product {
   size: Size;
   color: Color;
   images: Image[];
+  stock: number;
 }
 
 export interface Image {
@@ -36,4 +37,9 @@ export interface Color {
   id: string;
   name: string;
   value: string;
+}
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }
