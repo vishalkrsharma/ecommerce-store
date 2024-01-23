@@ -9,9 +9,6 @@ import Button from '@/components/ui/button';
 
 const CartItem = ({ data, quantity }: { data: Product; quantity: number }) => {
   const cart = useCart();
-  const [itemOnCart] = cart.items.map((item) => {
-    if (item.product.id === data.id) return item.quantity;
-  });
 
   const onRemove = () => {
     cart.removeItemAll(data);

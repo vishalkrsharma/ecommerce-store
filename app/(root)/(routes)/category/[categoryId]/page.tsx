@@ -6,6 +6,7 @@ import Billboard from '@/components/billboard';
 import Container from '@/components/ui/container';
 import NoResults from '@/components/ui/no-results';
 import ProductCard from '@/components/ui/product-card';
+
 import MobileFilters from './components/mobile-filters';
 import Filter from './components/filter';
 
