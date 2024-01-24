@@ -6,6 +6,7 @@ import Billboard from '@/components/billboard';
 import Container from '@/components/ui/container';
 import NoResults from '@/components/ui/no-results';
 import ProductCard from '@/components/ui/product-card';
+import { Product } from '@/types';
 
 import MobileFilters from './components/mobile-filters';
 import Filter from './components/filter';
@@ -57,7 +58,7 @@ const CategoryPage = async ({
             <div className='mt-6 lg:col-span-4 lg:mt-0'>
               {products.length === 0 && <NoResults />}
               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-                {products.map((item) => (
+                {products.map((item: Product) => (
                   <ProductCard
                     key={item.id}
                     data={item}
