@@ -4,12 +4,12 @@ import { Minus, Plus, ShoppingCart } from 'lucide-react';
 
 import Currency from '@/components/ui/currency';
 import Button from '@/components/ui/button';
-import { Product } from '@/types';
+import { CartItem, Product } from '@/types';
 import useCart from '@/hooks/use-cart';
 
 const Info = ({ data }: { data: Product }) => {
   const cart = useCart();
-  const [itemOnCart] = cart.items.map((item) => {
+  const [itemOnCart] = cart.items.map((item: CartItem) => {
     if (item.product.id === data.id) return item.quantity;
   });
 

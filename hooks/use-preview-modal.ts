@@ -10,7 +10,7 @@ interface PreviewModalStore {
   onClose: () => void;
 }
 
-const usePreviewModal = create<PreviewModalStore>((set) => ({
+const usePreviewModal = create<PreviewModalStore>((set: any) => ({
   isOpen: false,
   data: undefined,
   stock: undefined,
