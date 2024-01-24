@@ -7,7 +7,7 @@ import Modal from '@/components/ui/modal';
 
 const PreviewModal = () => {
   const previewModal = usePreviewModal();
-  const product = usePreviewModal((state) => state.data);
+  const product = usePreviewModal((state: any) => state.data);
 
   if (!product) {
     return null;
