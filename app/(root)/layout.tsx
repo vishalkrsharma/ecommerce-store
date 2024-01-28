@@ -6,7 +6,6 @@ import { PropsWithChildren } from 'react';
 
 const SetupLayout = ({ children }: PropsWithChildren) => {
   const { userId } = auth();
-  console.log(userId);
 
   if (!userId) redirect('/sign-in');
 
