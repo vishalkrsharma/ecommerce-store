@@ -4,8 +4,7 @@ import './globals.css';
 import ModalProvider from '@/providers/modal-provider';
 import ToastProvider from '@/providers/toast-provider';
 import { PropsWithChildren } from 'react';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
@@ -16,15 +15,15 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang='en'>
-      <body className={urbanist.className}>
-        <ModalProvider />
-        <ToastProvider />
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={urbanist.className}>
+          <ModalProvider />
+          <ToastProvider />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 };
 
