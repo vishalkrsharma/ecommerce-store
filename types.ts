@@ -102,5 +102,10 @@ export interface EventData {
   updated_at: number;
   username: null | string;
   verification_attempts_remaining: number;
-  web3_wallets: any[]; // Update this based on the actual structure
+  web3_wallets: any[];
+}
+
+export enum Sentiment {
+  GOOD,
+  BAD,
 }
