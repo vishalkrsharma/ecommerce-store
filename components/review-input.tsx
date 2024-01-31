@@ -38,7 +38,6 @@ const ReviewInput = ({ userId }: { userId: string | null }) => {
       toast.success('Review submitted.');
       router.refresh();
     } catch (error) {
-      console.log(error);
       toast.error('Something went wrong.');
     } finally {
       router.refresh();
