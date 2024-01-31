@@ -3,6 +3,7 @@ import getProducts from '@/actions/get-products';
 import Gallery from '@/components/gallery';
 import Info from '@/components/info';
 import ProductList from '@/components/product-list';
+import Reviews from '@/components/reviews';
 import Container from '@/components/ui/container';
 
 export const revalidate = 0;
@@ -39,6 +40,8 @@ const ProductPage = async ({
             items={suggestedProducts}
           />
         </div>
+        <hr className='mb-10' />
+        <Reviews />
       </Container>
     </div>
   );
