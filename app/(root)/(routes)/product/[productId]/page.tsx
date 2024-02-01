@@ -26,6 +26,8 @@ const ProductPage = async ({
     return null;
   }
 
+  console.log(reviews);
+
   return (
     <div className='bg-white'>
       <Container>
