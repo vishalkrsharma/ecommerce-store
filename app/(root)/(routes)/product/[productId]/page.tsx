@@ -3,8 +3,9 @@ import getProducts from '@/actions/get-products';
 import Gallery from '@/components/gallery';
 import Info from '@/components/info';
 import ProductList from '@/components/product-list';
-import Reviews from '@/components/reviews';
 import Container from '@/components/ui/container';
+import Reviews from './components/reviews';
+import getReviews from '@/actions/get-reviews';
 
 export const revalidate = 0;
 
@@ -19,6 +20,7 @@ const ProductPage = async ({
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,
   });
+  const reviews = await getReviews(params.productId);
 
   if (!product) {
     return null;
@@ -41,7 +43,7 @@ const ProductPage = async ({
           />
         </div>
         <hr className='mb-10' />
-        <Reviews />
+        <Reviews reviews={reviews} />
       </Container>
     </div>
   );

@@ -39,6 +39,15 @@ export interface Color {
   value: string;
 }
 
+export interface Review {
+  id: string;
+  sentiment: string;
+  content: string;
+  productId: string;
+  userId: string;
+  product: Product;
+}
+
 export interface CartItem {
   product: Product;
   quantity: number;
