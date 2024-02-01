@@ -3,12 +3,12 @@
 import * as z from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Button from './ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel } from './ui/form';
-import { Input } from './ui/input';
+import Button from '@/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import axios from 'axios';
 import { redirect, useParams, useRouter } from 'next/navigation';
 
@@ -19,7 +19,7 @@ const formSchema = z.object({
 
 type ReviewFormValues = z.infer<typeof formSchema>;
 
-const ReviewInput = ({ userId }: { userId: string | null }) => {
+const ReviewForm = ({ userId }: { userId: string | null }) => {
   if (!userId) redirect('/sign-in');
 
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ const ReviewInput = ({ userId }: { userId: string | null }) => {
   const onSubmit = async (data: ReviewFormValues) => {
     try {
       setLoading(true);
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/reviews/${params.productId}`, { ...data, userId });
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products/${params.productId}/reviews`, { ...data, userId });
       toast.success('Review submitted.');
       router.refresh();
     } catch (error) {
@@ -47,6 +47,7 @@ const ReviewInput = ({ userId }: { userId: string | null }) => {
 
   return (
     <div className='w-1/2'>
+      <h3 className='font-bold text-3xl'>Write a review</h3>
       <Form {...form}>
         <form
           className='space-y-8 w-full'
@@ -112,4 +113,4 @@ const ReviewInput = ({ userId }: { userId: string | null }) => {
   );
 };
 
-export default ReviewInput;
+export default ReviewForm;
