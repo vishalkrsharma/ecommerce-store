@@ -43,9 +43,9 @@ const ProductPage = async ({
             title='Related Items'
             items={suggestedProducts}
           />
+          <hr className='my-10' />
+          <Reviews reviews={reviews} />
         </div>
-        <hr className='mb-10' />
-        <Reviews reviews={reviews} />
       </Container>
     </div>
   );

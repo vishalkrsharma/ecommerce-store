@@ -46,60 +46,59 @@ const ReviewForm = ({ userId }: { userId: string | null }) => {
   };
 
   return (
-    <div className='w-1/2'>
+    <div className='md:w-1/2'>
       <h3 className='font-bold text-3xl'>Write a review</h3>
       <Form {...form}>
         <form
-          className='space-y-8 w-full'
+          className='space-y-4 w-full'
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <div>
-            <FormField
-              control={form.control}
-              name='sentiment'
-              render={({ field }) => (
-                <FormItem className='space-y-3'>
-                  <FormLabel>Did you like the product</FormLabel>
-                  <FormControl>
-                    <RadioGroup
-                      className='flex flex-col space-y-1'
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormItem className='flex items-center space-x-3 space-y-0'>
-                        <FormControl>
-                          <RadioGroupItem value='GOOD' />
-                        </FormControl>
-                        <FormLabel className='font-normal'>Yes</FormLabel>
-                      </FormItem>
-                      <FormItem className='flex items-center space-x-3 space-y-0'>
-                        <FormControl>
-                          <RadioGroupItem value='BAD' />
-                        </FormControl>
-                        <FormLabel className='font-normal'>No</FormLabel>
-                      </FormItem>
-                    </RadioGroup>
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='content'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Content</FormLabel>
-                  <FormControl>
-                    <Input
-                      disabled={loading}
-                      placeholder='Type your review here...'
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-          </div>
+          <FormField
+            control={form.control}
+            name='sentiment'
+            render={({ field }) => (
+              <FormItem className='space-y-3'>
+                <FormLabel>Did you like the product</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    className='flex flex-col space-y-1'
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormItem className='flex items-center space-x-3 space-y-0'>
+                      <FormControl>
+                        <RadioGroupItem value='GOOD' />
+                      </FormControl>
+                      <FormLabel className='font-normal'>Yes</FormLabel>
+                    </FormItem>
+                    <FormItem className='flex items-center space-x-3 space-y-0'>
+                      <FormControl>
+                        <RadioGroupItem value='BAD' />
+                      </FormControl>
+                      <FormLabel className='font-normal'>No</FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='content'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Content</FormLabel>
+                <FormControl>
+                  <Input
+                    disabled={loading}
+                    placeholder='Type your review here...'
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
           <Button
             disabled={loading}
             className='ml-auto'
