@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(createdAt: any) {
+export function formatDate(createdAt: Date) {
   const date = new Date(createdAt);
 
   const day = String(date.getUTCDate()).padStart(2, '0');

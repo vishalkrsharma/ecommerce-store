@@ -4,15 +4,13 @@ import { ThumbsDown, ThumbsUp } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 
 const Review = async ({ data }: { data: Review }) => {
-  const { userId, sentiment, content } = data;
+  const { userId, sentiment, content, createdAt } = data;
 
   const user = await prismadb.user.findUnique({
     where: {
       externalId: userId,
     },
   });
-
-  console.log(data);
 
   return (
     <div className='space-y-2 border rounded-lg p-2 mr-4'>
@@ -36,8 +34,8 @@ const Review = async ({ data }: { data: Review }) => {
           )}
         </div>
         <div className='flex space-x-2'>
-          <p>{formatDate(data.createdAt)}</p>
-          {data.sentiment === 'GOOD' ? <ThumbsUp className='text-gray-300' /> : <ThumbsDown className='text-gray-300' />}
+          <p>{formatDate(createdAt)}</p>
+          {sentiment === 'GOOD' ? <ThumbsUp className='text-gray-300' /> : <ThumbsDown className='text-gray-300' />}
         </div>
       </div>
       <p className='ml-10'>{content}</p>

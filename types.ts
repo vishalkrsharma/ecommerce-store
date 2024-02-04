@@ -46,6 +46,7 @@ export interface Review {
   productId: string;
   userId: string;
   product: Product;
+  createdAt: Date;
 }
 
 export interface CartItem {
