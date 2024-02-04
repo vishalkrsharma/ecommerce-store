@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ecommerce Store Repository
+
+This repository contains the source code for the store of our Ecommerce platform. This website is built using cutting-edge technologies to ensure a seamless and efficient experience for cutomers.
+
+## Table of Contents
+
+- [Ecommerce Store Repository](#ecommerce-store-repository)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [APIs](#apis)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+
+## Introduction
+
+Welcome to our Ecommerce Store repository! Our platform is built on a cutting-edge technology stack that includes Next.js, Tailwind CSS, PostgreSQL, Prisma, Zod, Shadcn UI, Stripe and pnpm. This combination ensures a robust and modern solution for managing products, orders, and categories in your online store.
+
+## Features
+
+- **User Authentication**: Secure user authentication and authorization system.
+- **Product Catalog**: Browse a diverse catalog of products with detailed information.
+- **Shopping Cart**: Add products to your cart and proceed to checkout.
+- **Order Management**: View and ma- **Zutand:** A small, fast, and scalable bearbones state management solution.nage your orders.
+- **Payment Integration**: Seamlessly integrate payment gateways for a smooth checkout process.
+- **Responsive Design**: Ensure a consistent user experience across devices.
+
+## Technologies Used
+
+- **Next.js:** A React framework for building efficient and scalable web applications.- **Zutand:** A small, fast, and scalable bearbones state management solution.stomization.
+- **PostgreSQL:** A powerful, open-source relational database system.
+- **Prisma:** A modern database toolkit that simplifies database access and management with type-safe queries.
+- **Zod:** A TypeScript-first schema declaration and validation library for JavaScript and TypeScript.
+- **Shadcn UI:** A custom UI library designed for a clean and intuitive user interface.
+- **Clerk:** An authentication and user management platform.
+- **Stripe:** Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.
+- **pnpm:** A fast, disk space-efficient package manager.
+
+## APIs
+
+This section outlines the APIs available for integration with the Ecommerce Admin panel. Ensure you have the necessary API keys and endpoints configured in your environment.
+
+- **Webhook API:** `/api/webhooks/user`
+
+  - `GET`, `POST`, `PUT` - Sync Store Database with Admin Database
+
+**Note:** Refer to the provided `.env.example` file for configuring API endpoints and keys.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Before you begin, ensure you have the following dependencies installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js
+- pnpm (Package Node Manager)
+- PostgreSQL
+- Prisma CLI
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+   ```bash
+   git clone https://github.com/vishalkrsharma/ecommerce-store.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   cd ecommerce-store
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Install the dependencies:
 
-## Deploy on Vercel
+   ```bash
+   pnpm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Set up environment variables:
+   Create a `.env` file based on the provided `.env.example`. You can use the example file as a template for configuring your environment variables.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run the application:
+
+   ```bash
+   pnpm start
+   ```
+
+The admin panel should now be accessible at http://localhost:3000.
