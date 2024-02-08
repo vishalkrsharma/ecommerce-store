@@ -36,6 +36,7 @@ const ReviewForm = ({ userId }: { userId: string | null }) => {
       setLoading(true);
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/products/${params.productId}/reviews`, { ...data, userId });
       router.refresh();
+      form.reset();
       toast.success('Review submitted.');
     } catch (error) {
       toast.error('Something went wrong.');
