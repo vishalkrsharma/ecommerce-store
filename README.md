@@ -29,7 +29,8 @@ Welcome to our Ecommerce Store repository! Our platform is built on a cutting-ed
 
 ## Technologies Used
 
-- **Next.js:** A React framework for building efficient and scalable web applications.- **Zutand:** A small, fast, and scalable bearbones state management solution.stomization.
+- **Next.js:** A React framework for building efficient and scalable web applications.
+- **Zutand:** A small, fast, and scalable bearbones state management solution.stomization.
 - **PostgreSQL:** A powerful, open-source relational database system.
 - **Prisma:** A modern database toolkit that simplifies database access and management with type-safe queries.
 - **Zod:** A TypeScript-first schema declaration and validation library for JavaScript and TypeScript.
