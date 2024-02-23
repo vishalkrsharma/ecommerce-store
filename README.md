@@ -23,14 +23,14 @@ Welcome to our Ecommerce Store repository! Our platform is built on a cutting-ed
 - **User Authentication**: Secure user authentication and authorization system.
 - **Product Catalog**: Browse a diverse catalog of products with detailed information.
 - **Shopping Cart**: Add products to your cart and proceed to checkout.
-- **Order Management**: View and ma- **Zutand:** A small, fast, and scalable bearbones state management solution.nage your orders.
+- **Order Management**: View and manage your orders.
 - **Payment Integration**: Seamlessly integrate payment gateways for a smooth checkout process.
 - **Responsive Design**: Ensure a consistent user experience across devices.
 
 ## Technologies Used
 
 - **Next.js:** A React framework for building efficient and scalable web applications.
-- **Zutand:** A small, fast, and scalable bearbones state management solution.stomization.
+- **Zutand:** A small, fast, and scalable bearbones state management solution
 - **PostgreSQL:** A powerful, open-source relational database system.
 - **Prisma:** A modern database toolkit that simplifies database access and management with type-safe queries.
 - **Zod:** A TypeScript-first schema declaration and validation library for JavaScript and TypeScript.
